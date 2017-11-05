@@ -9,16 +9,33 @@ class App extends Component {
   super(props);
   this.state = {
     redditData: [],
-    subreddit: 'news'
+    subreddit: ''
   };
+  this.getSearchResult = this.getSearchResult.bind(this);
 }
 
 componentWillMount () {
-  $.get(`https://www.reddit.com/r/${this.state.subreddit}.json`, (data) => {
-    this.setState(
-      {redditData: data.data.children},
-       () => {console.log(this.state.redditData)})
-  })
+  this.setState({
+    subreddit: 'news'
+  },
+    () => {$.get(`https://www.reddit.com/r/${this.state.subreddit}.json`, (data) => {
+      this.setState({
+        redditData: data.data.children
+      })
+    })}
+  )
+}
+
+getSearchResult (results) {
+  this.setState({
+    subreddit: results
+  },
+    () => {$.get(`https://www.reddit.com/r/${this.state.subreddit}.json`, (data) => {
+      this.setState({
+        redditData: data.data.children
+      })
+    })}
+  )
 }
 
 
@@ -27,12 +44,12 @@ componentWillMount () {
       <div>
           <h1 style={{textAlign: 'center'}}>Reddit Reader</h1>
           <h3 style={{marginLeft: '20px'}}> Current Subreddit: {this.state.subreddit}</h3>
-          <div style={{display: 'inline-flex', flexDirection: 'row', flexWrap: 'nowrap', justifyContent: 'space-around', alignContent: 'stretch', alignItems: 'flex-start'}}>
-            <div style={{maxWidth: '60%'}}> {this.state.redditData.map((article, index) =>
+          <div style={{display: 'inline-flex', flexDirection: 'row', flexWrap: 'nowrap', justifyContent: 'center', alignContent: 'stretch', alignItems: 'flex-start'}}>
+            <div style={{maxWidth: '70%'}}> {this.state.redditData.map((article, index) =>
               <EachEntry key={index} article={article}/>
             )}
           </div>
-          <YourSubreddits/>
+          <YourSubreddits getSearchResult={this.getSearchResult}/>
         </div>
       </div>
     );

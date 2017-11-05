@@ -15,7 +15,8 @@ handleChange(event) {
 }
 
 handleSubmit(event) {
-  alert('A name was submitted: ' + this.state.value);
+  // alert('A name was submitted: ' + this.state.value);
+  this.props.getSearchResult(this.state.value);
   event.preventDefault();
 }
 
