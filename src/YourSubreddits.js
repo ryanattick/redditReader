@@ -12,7 +12,7 @@ class YourSubreddits extends Component {
 }
 
 captureNewSubreddit (subreddit) {
-  subreddit = subreddit.charAt(0).toUpperCase() + subreddit.slice(1);
+  subreddit = subreddit.replace(/\w\S*/g, (txt) => {return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();})
   this.state.yourSubreddits.push(subreddit);
 }
 

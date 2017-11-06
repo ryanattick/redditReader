@@ -28,7 +28,7 @@ componentWillMount () {
 }
 
 getSearchResult (result) {
-  result = result.charAt(0).toUpperCase() + result.slice(1);
+  result = result.replace(/\w\S*/g, (txt) => {return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();})
   this.setState({
     subreddit: result
   },
