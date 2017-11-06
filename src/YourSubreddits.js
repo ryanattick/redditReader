@@ -35,9 +35,8 @@ handleRemove (subreddit) {
         <span style={{marginBottom: '20px', fontWeight: 'bold'}}>Your Subreddits:</span><br/>
         <Search style={{margin: '20px'}} getSearchResult={this.props.getSearchResult} captureNewSubreddit={this.captureNewSubreddit}/>
         {this.state.yourSubreddits.map((subreddit, index) =>
-          <div style={{margin: '20px'}}>
-            <div key={index} onClick={this.props.yourSubredditClick.bind(this, subreddit)}> + {subreddit}</div><input type="submit" value="Remove" onClick={this.handleRemove.bind(this, subreddit)}/>
-          </div>
+          <div key={index} style={{margin: '20px'}}>
+            <div style={{cursor: 'pointer'}} onClick={this.props.yourSubredditClick.bind(this, subreddit)}>{subreddit}</div><input type="submit" value="Remove" style={{cursor: 'pointer'}} onClick={this.handleRemove.bind(this, subreddit)}/> </div>
         )}
       </div>
     );
