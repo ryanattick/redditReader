@@ -12,6 +12,7 @@ class App extends Component {
     subreddit: ''
   };
   this.getSearchResult = this.getSearchResult.bind(this);
+  this.yourSubredditClick = this.yourSubredditClick.bind(this);
 }
 
 componentWillMount () {
@@ -38,6 +39,18 @@ getSearchResult (result) {
   )
 }
 
+yourSubredditClick (subreddit) {
+  this.setState({
+    subreddit: subreddit
+  },
+    () => {$.get(`https://www.reddit.com/r/${this.state.subreddit}.json`, (data) => {
+      this.setState({
+        redditData: data.data.children
+      })
+    })}
+  )
+}
+
 
   render() {
     return (
@@ -49,7 +62,7 @@ getSearchResult (result) {
               <EachEntry key={index} article={article}/>
             )}
           </div>
-          <YourSubreddits getSearchResult={this.getSearchResult} />
+          <YourSubreddits getSearchResult={this.getSearchResult} yourSubredditClick={this.yourSubredditClick}/>
         </div>
       </div>
     );

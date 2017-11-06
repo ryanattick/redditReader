@@ -16,7 +16,6 @@ captureNewSubreddit (subreddit) {
 }
 
 handleRemove (subreddit) {
-  // this.state.yourSubreddits.splice(index, 1);
   for (var i = 0; i < this.state.yourSubreddits.length; i++) {
     if (this.state.yourSubreddits[i] === subreddit) {
       this.state.yourSubreddits.splice(i, 1);
@@ -34,7 +33,7 @@ handleRemove (subreddit) {
         Categories
         <Search getSearchResult={this.props.getSearchResult} captureNewSubreddit={this.captureNewSubreddit}/>
         {this.state.yourSubreddits.map((subreddit, index) =>
-          <div key={index}> + {subreddit} <input type="submit" value="Remove" onClick={this.handleRemove.bind(this, subreddit)}/> </div>
+          <div key={index} onClick={this.props.yourSubredditClick.bind(this, subreddit)}> + {subreddit} <input type="submit" value="Remove" onClick={this.handleRemove.bind(this, subreddit)}/> </div>
         )}
       </div>
     );
