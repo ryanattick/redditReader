@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import './style/EachEntry.css';
 
 class EachEntry extends Component {
 
   render() {
     return (
-      <div style={{border: '1px solid gray', margin: '10px', background: '#CDE3F6', textAlign: 'center'}}>
+      <div className='redditPosts'>
         <div style={{fontWeight: 'bold'}}>
           <a href={this.props.article.data.url}>{this.props.article.data.title}</a>
         </div>

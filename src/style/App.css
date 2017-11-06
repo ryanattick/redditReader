@@ -1,0 +1,31 @@
+.header {
+  border: 1px solid gray;
+  background: #CDE3F6;
+  margin: 10px;
+}
+
+.headerText {
+  text-align: center;
+}
+
+.subheaderText {
+  margin-left: 20px;
+}
+
+.flexBox {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: flex-start;
+}
+
+.pageNotFound {
+  min-width: 50%;
+  border: 1px solid gray;
+  background: #CDE3F6;
+  text-align: center;
+  margin-left: 10px;
+  font-size: 2em;
+}

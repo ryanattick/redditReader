@@ -1,0 +1,14 @@
+.yourSubredditsBox {
+  border: 1px solid gray;
+  margin: 10px;
+  min-width: 35%;
+  min-length: 100%;
+  background: #CDE3F6;
+}
+
+.yourSubreddits {
+  cursor: pointer;
+  color: #2F6795;
+  font-size: 1.25em;
+  text-align: center;
+}
