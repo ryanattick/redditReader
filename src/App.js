@@ -17,7 +17,7 @@ class App extends Component {
 
 componentWillMount () {
   this.setState({
-    subreddit: 'news'
+    subreddit: 'News'
   },
     () => {$.get(`https://www.reddit.com/r/${this.state.subreddit}.json`, (data) => {
       this.setState({
@@ -28,6 +28,7 @@ componentWillMount () {
 }
 
 getSearchResult (result) {
+  result = result.charAt(0).toUpperCase() + result.slice(1);
   this.setState({
     subreddit: result
   },
