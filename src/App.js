@@ -26,9 +26,9 @@ componentWillMount () {
   )
 }
 
-getSearchResult (results) {
+getSearchResult (result) {
   this.setState({
-    subreddit: results
+    subreddit: result
   },
     () => {$.get(`https://www.reddit.com/r/${this.state.subreddit}.json`, (data) => {
       this.setState({
@@ -49,7 +49,7 @@ getSearchResult (results) {
               <EachEntry key={index} article={article}/>
             )}
           </div>
-          <YourSubreddits getSearchResult={this.getSearchResult}/>
+          <YourSubreddits getSearchResult={this.getSearchResult} />
         </div>
       </div>
     );
