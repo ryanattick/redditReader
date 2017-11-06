@@ -4,7 +4,7 @@ class EachEntry extends Component {
 
   render() {
     return (
-      <div style={{border: '1px solid gray', margin: '10px'}}>
+      <div style={{border: '1px solid gray', margin: '10px', background: '#CDE3F6', textAlign: 'center'}}>
         <div style={{fontWeight: 'bold'}}>
           <a href={this.props.article.data.url}>{this.props.article.data.title}</a>
         </div>

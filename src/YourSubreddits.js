@@ -31,12 +31,12 @@ handleRemove (subreddit) {
 
   render() {
     return (
-      <div style={{border: '1px solid gray', margin: '10px', minWidth: '35%', minLength: '100%'}}>
-        <span style={{marginBottom: '20px', fontWeight: 'bold'}}>Your Subreddits:</span><br/>
+      <div style={{border: '1px solid gray', margin: '10px', minWidth: '35%', minLength: '100%', background: '#CDE3F6'}}>
+        <span style={{marginBottom: '20px', fontWeight: 'bold'}}>Your Subreddits:</span>
         <Search style={{margin: '20px'}} getSearchResult={this.props.getSearchResult} captureNewSubreddit={this.captureNewSubreddit}/>
         {this.state.yourSubreddits.map((subreddit, index) =>
           <div key={index} style={{margin: '20px'}}>
-            <div style={{cursor: 'pointer'}} onClick={this.props.yourSubredditClick.bind(this, subreddit)}>{subreddit}</div><input type="submit" value="Remove" style={{cursor: 'pointer'}} onClick={this.handleRemove.bind(this, subreddit)}/> </div>
+            <div style={{cursor: 'pointer', color: '#2F6795', fontSize: '1.25em', textAlign: 'center'}} onClick={this.props.yourSubredditClick.bind(this, subreddit)}>{subreddit}</div><input type="submit" value="Remove" style={{cursor: 'pointer', margin: 'auto'}} onClick={this.handleRemove.bind(this, subreddit)}/></div>
         )}
       </div>
     );
