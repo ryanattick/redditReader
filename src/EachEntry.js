@@ -15,7 +15,7 @@ class EachEntry extends Component {
           <img src={this.props.article.data.thumbnail}/>
         </div>
         <div>
-          COMMENTS {this.props.article.data.num_comments}
+          Comments: {this.props.article.data.num_comments}
         </div>
       </div>
     );

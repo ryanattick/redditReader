@@ -17,13 +17,17 @@ handleChange(event) {
 }
 
 handleSubmit(event) {
-  event.preventDefault();
-  this.props.getSearchResult(this.state.value);
-  this.props.captureNewSubreddit(this.state.value);
-  // this.setState({
-  //   value: ''
-  // }) NEED TO FIGURE OUT PROMISES!
-}
+    event.preventDefault();
+    Promise.resolve(this.props.getSearchResult(this.state.value))
+    .then(() => {
+      this.props.captureNewSubreddit(this.state.value);
+    })
+    .then(() => {
+      this.setState({
+        value: ''
+      });
+    });
+  }
 
   render() {
     return (
