@@ -1,6 +1,5 @@
 {
   "name": "reddit-reader",
-  "homepage": "https://ryanattick.github.io/reddit-reader",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
