@@ -17,9 +17,12 @@ handleChange(event) {
 }
 
 handleSubmit(event) {
+  event.preventDefault();
   this.props.getSearchResult(this.state.value);
   this.props.captureNewSubreddit(this.state.value);
-  event.preventDefault();
+  // this.setState({
+  //   value: ''
+  // }) NEED TO FIGURE OUT PROMISES!
 }
 
   render() {
