@@ -42,7 +42,6 @@ getSearchResult (result) {
       this.setState({
         pageNotFound: true
       })
-      //delete the last entry from your subreddit list and then pass the list down
     })
   })
 }
@@ -60,10 +59,10 @@ yourSubredditClick (subreddit) {
       this.setState({
         pageNotFound: true
       })
-      //delete the last entry from your subreddit list and then pass the list down
     })
   })
 }
+
 
 
   render() {
@@ -71,17 +70,17 @@ yourSubredditClick (subreddit) {
       <div>
         <div className='header'>
           <h1 className='headerText'>Reddit Reader</h1>
-          <h3 className='subheaderText'> Current Subreddit: {this.state.subreddit}</h3>
+          <h3 className='subheaderText'> Current Subreddit: <span style={{color:'#2F6795'}}> {this.state.subreddit}</span></h3>
         </div>
           <div className='flexBox'>
             {!this.state.pageNotFound &&
-            <div style={{maxWidth: '70%'}}> {this.state.redditData.map((article, index) =>
+            <div style={{maxWidth: '70%', minWidth: '50%'}}> {this.state.redditData.map((article, index) =>
               <EachEntry key={index} article={article}/>
             )}
             </div>
           }
           {this.state.pageNotFound &&
-            <div className='pageNotFound'>Hmmm. Sorry! It looks like there are no results for that search. <br/>Please try something else!<br/><img src='https://i.imgur.com/jXHOrUq.png'/></div>
+            <div className='pageNotFound'>Hmmm. Sorry! It looks like there are no results for <span style={{color: 'red'}}>{this.state.subreddit}</span>. <br/>Please try searching for something else.<br/><img src='https://i.imgur.com/jXHOrUq.png'/></div>
           }
           <YourSubreddits getSearchResult={this.getSearchResult} yourSubredditClick={this.yourSubredditClick}/>
         </div>

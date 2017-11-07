@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 
 class Search extends Component {
   constructor(props) {
@@ -33,10 +35,9 @@ handleSubmit(event) {
     return (
       <form onSubmit={this.handleSubmit}>
         <label style={{margin: '20px'}}>
-          Search:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <TextField hintText="Search Subreddits" value={this.state.value} style={{maxWidth: '60%'}}  underlineFocusStyle={{borderColor: '#2F6795'}} onChange={this.handleChange}/>
         </label>
-        <input type="submit" value="Submit" />
+        <RaisedButton label="Go" onClick={this.handleSubmit}/>
       </form>
     );
   }
